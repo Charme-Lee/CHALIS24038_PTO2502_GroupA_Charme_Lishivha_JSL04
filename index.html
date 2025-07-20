@@ -5,23 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-    href=https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap
-    rel="stylesheet" />
-    <script src="./script.js" defer></script>
-    <link rel="stylesheet" href="./styles.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/favicon.svg"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
     />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.svg" />
     <title>Kanban Task Management</title>
   </head>
   <body>
-    <!-- Sidebar -->
     <nav class="side-bar" id="side-bar-div">
       <div id="side-logo-div">
-        <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
+        <img id="logo" src="assets/logo-light.svg" alt="logo-light" />
       </div>
 
       <div class="boards-nav-links-div" id="boards-nav-links-div">
@@ -29,15 +24,11 @@
         <button class="board-btn">Launch Career</button>
       </div>
     </nav>
-    <!-- Main Layout -->
+
     <div id="layout">
       <header id="header" class="sticky-header">
         <div class="header-name-div">
-          <img
-            src="./assets/favicon.svg"
-            alt="logo-mobile"
-            class="logo-mobile"
-          />
+          <img src="assets/favicon.svg" alt="logo-mobile" class="logo-mobile" />
           <h2 class="header-board-name" id="header-board-name">
             Launch Career
           </h2>
@@ -50,7 +41,6 @@
 
       <div class="container">
         <main class="card-column-main">
-          <!-- Columns: To Do / Doing / Done -->
           <div class="column-div" data-status="todo">
             <div id="todo-head-div" class="column-head-div">
               <span class="dot" id="todo-dot"></span>

@@ -19,36 +19,44 @@ const initialTasks = [
   },
   {
     id: 2,
-    title: "Master JavaScript 💛",
-    description: "Get comfortable with the fundamentals",
-    status: "doing",
-  },
-  {
-    id: 3,
-    title: "Keep on Going 🏆",
-    description: "You're almost there",
-    status: "doing",
-  },
-
-  {
-    id: 11,
-    title: "Learn Data Structures and Algorithms 📚",
-    description:
-      "Study fundamental data structures and algorithms to solve coding problems efficiently",
+    title: "Conquer React ⚛️",
+    description: "Learn React.js",
     status: "todo",
   },
   {
-    id: 12,
-    title: "Contribute to Open Source Projects 🌐",
-    description:
-      "Gain practical experience and collaborate with others in the software development community",
+    id: 3,
+    title: "Understand Databases ⚙️",
+    description: "Know how to query databases.",
+    status: "todo",
+  },
+  {
+    id: 4,
+    title: "Crush Frameworks 🖼️",
+    description: "Master web frameworks like Next.js, Angular, or Vue.",
+    status: "todo",
+  },
+  {
+    id: 5,
+    title: "Master JavaScript 💛",
+    description: "Practice JavaScript.",
+    status: "doing",
+  },
+  {
+    id: 6,
+    title: "Never Give Up 🏆",
+    description: "Slow and steady.",
+    status: "doing",
+  },
+  {
+    id: 7,
+    title: "Explore ES6 Features 🚀",
+    description: "Javascript deep dive.",
     status: "done",
   },
   {
-    id: 13,
-    title: "Build Portfolio Projects 🛠️",
-    description:
-      "Create a portfolio showcasing your skills and projects to potential employers",
+    id: 8,
+    title: "Have fun 🥳",
+    description: "Rome was not built in one day!",
     status: "done",
   },
 ];
@@ -164,7 +172,7 @@ function openTaskModal(task = null) {
   titleInput.value = task ? task.title : "";
   titleInput.placeholder = "e.g. Take chilled break";
 
-  // Description text area
+  // Description textarea
   const descriptionLabel = document.createElement("label");
   descriptionLabel.textContent = "Description";
   const descriptionTextarea = document.createElement("textarea");
@@ -179,7 +187,7 @@ function openTaskModal(task = null) {
   const statusSelect = document.createElement("select");
   statusSelect.id = "modalTaskStatus";
 
-  // Dropdown options for status
+  // Populate dropdown options for status
   const statuses = ["todo", "doing", "done"];
   statuses.forEach((status) => {
     const option = document.createElement("option");
@@ -194,7 +202,7 @@ function openTaskModal(task = null) {
     statusSelect.appendChild(option);
   });
 
-  // Action buttons container (save,create and delete)
+  // Action buttons container (save/create and delete)
   const actionButtonsDiv = document.createElement("div");
   actionButtonsDiv.style.display = "flex";
   actionButtonsDiv.style.gap = "10px";
@@ -226,12 +234,12 @@ function openTaskModal(task = null) {
 
   actionButtonsDiv.appendChild(primaryButton);
 
-  // if and when editing, add a delete button
+  // If editing, add a delete button
   if (task) {
     const deleteButton = document.createElement("button");
     deleteButton.id = "delete-button";
     deleteButton.textContent = "Delete Task";
-    // Style delete button
+    // Style delete button for visibility
     deleteButton.style.backgroundColor = "#EA5555";
     deleteButton.style.color = "#fff";
     deleteButton.style.border = "none";
@@ -291,7 +299,6 @@ function updateTaskState(id, newTitle, newDescription, newStatus) {
   });
   renderTasks();
 }
-
 /**
  * Adds a new task to the `currentTasksState` array.
  * Assigns a unique ID and then re-renders the tasks.
