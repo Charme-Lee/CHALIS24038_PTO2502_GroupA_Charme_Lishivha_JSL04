@@ -163,3 +163,58 @@ function openTaskModal(task = null) {
   titleInput.id = "modalTaskTitle";
   titleInput.value = task ? task.title : "";
   titleInput.placeholder = "e.g. Take chilled break";
+
+
+  // Action buttons container (save,create and delete)
+  const actionButtonsDiv = document.createElement("div");
+  actionButtonsDiv.style.display = "flex";
+  actionButtonsDiv.style.gap = "10px";
+  actionButtonsDiv.style.marginTop = "20px";
+
+  // Primary action button (Save Changes or Create Task)
+  const primaryButton = document.createElement("button");
+  primaryButton.id = "save-button";
+  primaryButton.textContent = task ? "Save Changes" : "Create Task";
+  primaryButton.addEventListener("click", () => {
+    if (task) {
+      // Update existing task
+      updateTaskState(
+        task.id,
+        titleInput.value,
+        descriptionTextarea.value,
+        statusSelect.value
+      );
+    } else {
+      // Add new task
+      addNewTask(
+        titleInput.value,
+        descriptionTextarea.value,
+        statusSelect.value
+      );
+    }
+    modalBackdrop.remove();
+  });
+
+  actionButtonsDiv.appendChild(primaryButton);
+
+  // if and when editing, add a delete button
+  if (task) {
+    const deleteButton = document.createElement("button");
+    deleteButton.id = "delete-button";
+    deleteButton.textContent = "Delete Task";
+    // Style delete button 
+    deleteButton.style.backgroundColor = "#EA5555";
+    deleteButton.style.color = "#fff";
+    deleteButton.style.border = "none";
+    deleteButton.style.borderRadius = "100px";
+    deleteButton.style.height = "40px";
+    deleteButton.style.fontSize = "0.9375rem";
+    deleteButton.style.fontWeight = "bold";
+    deleteButton.style.cursor = "pointer";
+    deleteButton.style.padding = "10px 15px";
+    deleteButton.addEventListener("click", () => {
+      deleteTask(task.id);
+      modalBackdrop.remove();
+    });
+    actionButtonsDiv.appendChild(deleteButton);
+  }
