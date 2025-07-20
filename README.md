@@ -29,22 +29,31 @@ It includes logic to handle user interaction for adding tasks, prompting for the
 ### New Features:
 
 - Added Features
-  📦 Structured Task Storage: Tasks are stored as objects within an array for organized data management.
+  ❌ Easy Exit: A clearly visible Close (X) button lets users exit the modal without applying changes.
 
-- ➕ Add New Tasks: Users can add up to three new tasks to the existing list.
+- ➕ Add New Tasks: A dedicated button in the header opens a modal designed for creating new tasks from scratch.
 
 - 🆔 Unique Task IDs: Each new task is assigned a unique incremental ID, continuing from the last task in the array.
 
-- 📝 Prompt-Based Input: Users are prompted to enter title, description, and status, which are saved in the task object.
+- 📝 Editable Input Fields: Both modals include fields for updating the task’s title and description.
 
-- 🚫 Task Limit Alert: When the task limit is reached, users see an alert:
-  "There are enough tasks on your board, please check them in the console."
+- 🗑️ Task Deletion: The edit modal includes a Delete Task option for quick removal of tasks.
 
-- 🔍 Filter Completed Tasks: A dedicated function filters and displays only tasks with status "done".
+- 🔽 Status Selector: A dropdown menu allows users to easily switch task status between To Do, Doing, and Done.
 
-- 📋 Console Logging:
+- 🔍 Edit Existing Tasks: Clicking on any task opens a modal pre-populated with its current data for seamless editing.
 
-- Logs only completed tasks under a "Completed Tasks" section for quick access.
+- 📋 Backdrop Overlay: A semi-transparent overlay is included for visual focus and improved user experience.
+
+- 💾 Save Functionality: The Save Changes button applies edits instantly, updating the task in the interface.
+
+## 🛠️ Code Quality & Maintainability
+
+Consistent Naming Conventions: Descriptive and meaningful names are used throughout for variables, functions, and DOM elements, improving overall readability.
+
+Comprehensive JSDoc Comments: All key functions are documented using JSDoc, providing clear descriptions, parameters, and return types for better developer understanding and onboarding.
+
+Modular JavaScript Architecture: Logic is organized into well-defined, single-purpose functions like renderTasks, openTaskModal, addNewTask, updateTaskState, and deleteTask, promoting clarity and reusability.
 
 ## 🛠️ Technologies Used
 
