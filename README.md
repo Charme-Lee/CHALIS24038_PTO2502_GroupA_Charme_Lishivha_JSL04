@@ -69,14 +69,14 @@ Modular JavaScript Architecture: Logic is organized into well-defined, single-pu
 
 ```bash
 git clone
-https://github.com/Charme-Lee/CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSL03.git
+https://github.com/Charme-Lee/CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSL04.git
 ```
 
 2. **Open the Project Folder**
 
 ```bash
 cd
-CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSL03
+CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSL04
 ```
 
 3. 🚀 **Launch the App**
@@ -85,57 +85,34 @@ CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSL03
   Alternatively,
 - Open index.html file directly from your web browser (i.e. Drag and drop the file onto the browser)
 
-## 🧑‍💻 Usage Instructions
+---
+
+## 🚀 Usage Instructions
 
 ### ⚡ At Startup
 
-1. Open the Kanban app in your browser.
-2. Browser prompt will pop up requesting user details
+- Open the Kanban app in your browser.
 
-### 🗒️ Enter Task Details
+#### ➕ **Add a New Task**
 
-Each task has 3 prompts:
+1. Click the **“+ Add New Task”** button in the top-right corner of the header.
+2. Fill in the task **title** and **description** in the modal that appears.
+3. Choose a **status** from the dropdown (🔽 _todo_, _doing_, _done_).
+4. Click **“Create Task”** to add it to the appropriate column on the Kanban board.
 
-- **Title** (e.g., `"Breakfast"`)
-- **Description** (e.g., `"Overnight oats"`)
-- **Status**:
-  - Valid options: `todo`, `doing`, `done`
-  - If the input is invalid, an alert will appear and you’ll be asked to re-enter it.
-  - There is a limit set for the number of task that can be added, once reached, user will be alerted that additional tasks cannot be added.
+#### ✏️ **Edit an Existing Task**
 
-### 💻 Console Output (Browsers Dev tools)
+1. Click on any task card on the board.
+2. The modal opens pre-filled with the task's details.
+3. Update the **title**, **description**, or **status** as needed.
+4. Click **“Save Changes”** to apply updates (task will move columns if status changes).
 
-- Once all tasks have been added succesfully, the console will print:
+#### 🗑️ **Delete a Task**
 
-![title prompt](./explainer-images/consolelog.png)
+1. Open a task by clicking its card.
+2. In the modal, click the **“Delete Task”** button.
+3. The task is instantly removed from the board.
 
-## 📖 Usage Example 👍
+#### ❌ **Close a Modal**
 
-**Prompt Input(s):**
-
-- Task 1:
-
-  - Title: `Gym`
-  - Description: `Work those muscles`
-  - Status: `todo`
-
-- Task 2:
-  - Title: `Sleep`
-  - Description: `Rest that bod`
-  - Status: `done`
-
-**Console Output:**
-
-```js
-📋 All Tasks:
-[
-  0:{ id: 1, title: "Gym", description: `Work those muscles`, status: "todo"},
- 1:{id: 2, title: "Sleep", description: `Rest that bod`, status: "done"}
-]
-
-✅ Completed Tasks:
-[
-  { id: 2, title: "Sleep", description: `Rest that bod`, status: "done"}
-]
-
-```
+- To exit without saving, click the **‘X’ icon** in the top-right corner of any open modal.
