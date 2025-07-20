@@ -59,3 +59,66 @@ const initialTasks = [
  * */
 
 let currentTasksState = [...initialTasks];
+
+/**
+ * Clears existing tasks before rendering.
+ * Renders all tasks from the `currentTasksState` array into their respective board columns.
+ *
+ * @returns {void}
+ */
+function renderTasks() {
+  // Clear all existing tasks
+  document.querySelectorAll(".tasks-container").forEach((container) => {
+    container.innerHTML = "";
+  });
+
+  currentTasksState.forEach((task) => {
+    const taskElement = createTaskElement(task);
+    const targetContainer = document.querySelector(
+      `.column-div[data-status="${task.status}"] .tasks-container`
+    );
+    if (targetContainer) {
+      targetContainer.appendChild(taskElement);
+    }
+  });
+  updateTaskCountDisplays();
+}
+
+/**
+ * Generates a DOM element representing a task and attaches a click handler
+ * to open the task modal.
+ *
+ * @param {Task} task - The task to render.
+ * @returns {HTMLDivElement} The task element.
+ */
+
+function createTaskElement(task) {
+  const taskDiv = document.createElement("div");
+  taskDiv.className = "task-div";
+  taskDiv.textContent = task.title;
+  taskDiv.dataset.taskId = task.id;
+  taskDiv.addEventListener("click", () => openTaskModal(task));
+  return taskDiv;
+}
+
+/**
+ * Updates the task count displayed in each column header
+ * based on the current task state.
+ *
+ * @returns {void}
+ */
+function updateTaskCountDisplays() {
+  const statuses = ["todo", "doing", "done"];
+  statuses.forEach((status) => {
+    const count = currentTasksState.filter(
+      (task) => task.status === status
+    ).length;
+    const headerElement = document.querySelector(
+      `.column-div[data-status="${status}"] .columnHeader`
+    );
+    if (headerElement) {
+      const currentText = headerElement.textContent.split("(")[0].trim();
+      headerElement.textContent = `${currentText} (${count})`;
+    }
+  });
+}
