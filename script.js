@@ -164,7 +164,6 @@ function openTaskModal(task = null) {
   titleInput.value = task ? task.title : "";
   titleInput.placeholder = "e.g. Take chilled break";
 
-
   // Description text area
   const descriptionLabel = document.createElement("label");
   descriptionLabel.textContent = "Description";
@@ -232,7 +231,7 @@ function openTaskModal(task = null) {
     const deleteButton = document.createElement("button");
     deleteButton.id = "delete-button";
     deleteButton.textContent = "Delete Task";
-    // Style delete button 
+    // Style delete button
     deleteButton.style.backgroundColor = "#EA5555";
     deleteButton.style.color = "#fff";
     deleteButton.style.border = "none";
@@ -248,3 +247,33 @@ function openTaskModal(task = null) {
     });
     actionButtonsDiv.appendChild(deleteButton);
   }
+  // Append all fields and buttons to modal content
+  modalContent.appendChild(modalTitle);
+  modalContent.appendChild(titleLabel);
+  modalContent.appendChild(titleInput);
+  modalContent.appendChild(descriptionLabel);
+  modalContent.appendChild(descriptionTextarea);
+  modalContent.appendChild(statusLabel);
+  modalContent.appendChild(statusSelect);
+  modalContent.appendChild(actionButtonsDiv);
+
+  // Assemble modal and backdrop
+  modal.appendChild(closeButton);
+  modal.appendChild(modalContent);
+  modalBackdrop.appendChild(modal);
+
+  // Display modal on the page
+  document.body.appendChild(modalBackdrop);
+}
+
+/**
+ * Updates the `currentTasksState` array with changes to a specific task,
+ * keeping the original `initialTasks` array unchanged.
+ * Creates a new array reflecting the updated task details.
+ *
+ * @param {number} id - ID of the task to update.
+ * @param {string} newDescription - Updated task description.
+ * @param {string} newStatus - Updated task status.
+ * @param {string} newTitle - Updated task title.
+ * @returns {void}
+ */
